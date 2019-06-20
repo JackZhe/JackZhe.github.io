@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="利用Set/Map数组去重,可以是代码更加简洁 Set类似数组，数据唯一 Set 遍历数组根据 set 里的数据唯一，来遍历数组 12345const oldArr = [1, 2, 3, 4, 2, 3, &apos;2&apos;];const newArr = Array.from(new Set(oldArr))；// const newArr = [...new Set(oldArr)]// [ 1, 2,">
+<meta name="keywords" content="ES6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Set&amp;Map数组去重">
+<meta property="og:url" content="https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/index.html">
+<meta property="og:site_name" content="行走的人字拖">
+<meta property="og:description" content="利用Set/Map数组去重,可以是代码更加简洁 Set类似数组，数据唯一 Set 遍历数组根据 set 里的数据唯一，来遍历数组 12345const oldArr = [1, 2, 3, 4, 2, 3, &apos;2&apos;];const newArr = Array.from(new Set(oldArr))；// const newArr = [...new Set(oldArr)]// [ 1, 2,">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-20T15:16:16.220Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Set&amp;Map数组去重">
+<meta name="twitter:description" content="利用Set/Map数组去重,可以是代码更加简洁 Set类似数组，数据唯一 Set 遍历数组根据 set 里的数据唯一，来遍历数组 12345const oldArr = [1, 2, 3, 4, 2, 3, &apos;2&apos;];const newArr = Array.from(new Set(oldArr))；// const newArr = [...new Set(oldArr)]// [ 1, 2,">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.svg">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon.svg" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.svg">
+          
+        
+    
+    <!-- title -->
+    <title>使用Set&amp;Map数组去重</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Articles</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Post Anterior</span>
+      <span id="i-next" class="info" style="display:none;">Post Següent</span>
+      <span id="i-top" class="info" style="display:none;">Adalt</span>
+      <span id="i-share" class="info" style="display:none;">Compartir Post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&text=使用Set&amp;Map数组去重"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&title=使用Set&amp;Map数组去重"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&is_video=false&description=使用Set&amp;Map数组去重"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=使用Set&amp;Map数组去重&body=Check out this article: https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&title=使用Set&amp;Map数组去重"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&title=使用Set&amp;Map数组去重"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&title=使用Set&amp;Map数组去重"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&title=使用Set&amp;Map数组去重"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&name=使用Set&amp;Map数组去重&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Set"><span class="toc-number">1.</span> <span class="toc-text">Set</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Set-遍历数组"><span class="toc-number">1.1.</span> <span class="toc-text">Set 遍历数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Map"><span class="toc-number">2.</span> <span class="toc-text">Map</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Map-遍历数组"><span class="toc-number">2.1.</span> <span class="toc-text">Map  遍历数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reduce"><span class="toc-number">3.</span> <span class="toc-text">reduce()</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        使用Set&amp;Map数组去重
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">行走的人字拖</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-06-20T14:58:51.000Z" itemprop="datePublished">2019-06-20</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/ES6/">ES6</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>利用Set/Map数组去重,可以是代码更加简洁</p>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>类似数组，数据唯一</p>
+<h3 id="Set-遍历数组"><a href="#Set-遍历数组" class="headerlink" title="Set 遍历数组"></a>Set 遍历数组</h3><p>根据 set 里的数据唯一，来遍历数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> oldArr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">'2'</span>];</span><br><span class="line"><span class="keyword">const</span> newArr = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(oldArr))；</span><br><span class="line"><span class="comment">// const newArr = [...new Set(oldArr)]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// [ 1, 2, 3, 4, '2' ]</span></span><br></pre></td></tr></table></figure>
+
+<p>当数组是由对象组成 [{},…,{}]</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> oldArr = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">'1'</span>, <span class="attr">name</span>: <span class="string">'jack'</span>, <span class="attr">age</span>: <span class="number">20</span>, <span class="attr">value</span>: <span class="string">'man'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">'2'</span>, <span class="attr">name</span>: <span class="string">'rose'</span>, <span class="attr">age</span>: <span class="number">20</span>, <span class="attr">value</span>: <span class="string">'woman'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">'2'</span>, <span class="attr">name</span>: <span class="string">'rose'</span>, <span class="attr">age</span>: <span class="number">20</span>, <span class="attr">value</span>: <span class="string">'woman'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">'5'</span>, <span class="attr">name</span>: <span class="string">'tom'</span>, <span class="attr">age</span>: <span class="number">22</span>, <span class="attr">value</span>: <span class="string">'woman'</span> &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">set</span> = new Set();</span><br><span class="line">  // <span class="keyword">set</span> 数据的唯一性</span><br><span class="line">  arr.map((item) =&gt; <span class="keyword">set</span>.add(JSON.stringify(item)));</span><br><span class="line">  return Array.from(<span class="keyword">set</span>).map((item) =&gt; JSON.parse(item));</span><br><span class="line">&#125;</span><br><span class="line">unique(oldArr)</span><br><span class="line">//[ &#123; id: <span class="string">'1'</span>, <span class="attr">name</span>: <span class="string">'jack'</span>, <span class="attr">age</span>: <span class="number">20</span>, <span class="attr">value</span>: <span class="string">'man'</span> &#125;,</span><br><span class="line"><span class="comment">// &#123; id: '2', name: 'rose', age: 20, value: 'woman' &#125;,</span></span><br><span class="line"><span class="comment">// &#123; id: '5', name: 'tom', age: 22, value: 'woman' &#125; ]</span></span><br></pre></td></tr></table></figure>
+
+<p>缺点：当对象的键值没有规律性时，通过把组成项转化成字符串，是不同的两个</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> oldArr = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">'1'</span>, <span class="attr">name</span>: <span class="string">'jack'</span>, <span class="attr">age</span>: <span class="number">20</span>, <span class="attr">value</span>: <span class="string">'man'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">'2'</span>, <span class="attr">name</span>: <span class="string">'rose'</span>, <span class="attr">age</span>: <span class="number">20</span>, <span class="attr">value</span>: <span class="string">'woman'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">'2'</span>, <span class="attr">name</span>: <span class="string">'rose'</span>, <span class="attr">value</span>: <span class="string">'woman'</span>, <span class="attr">age</span>: <span class="number">20</span>, &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">'5'</span>, <span class="attr">name</span>: <span class="string">'tom'</span>, <span class="attr">age</span>: <span class="number">22</span>, <span class="attr">value</span>: <span class="string">'woman'</span> &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">set</span> = new Set();</span><br><span class="line">  // <span class="keyword">set</span> 数据的唯一性</span><br><span class="line">  arr.map((item) =&gt; <span class="keyword">set</span>.add(JSON.stringify(item)));</span><br><span class="line">  return Array.from(<span class="keyword">set</span>).map((item) =&gt; JSON.parse(item));</span><br><span class="line">&#125;</span><br><span class="line">unique(oldArr)</span><br><span class="line">//[ &#123; id: <span class="string">'1'</span>, <span class="attr">name</span>: <span class="string">'jack'</span>, <span class="attr">age</span>: <span class="number">20</span>, <span class="attr">value</span>: <span class="string">'man'</span> &#125;,</span><br><span class="line"><span class="comment">//  &#123; id: '2', name: 'rose', age: 20, value: 'woman' &#125;,</span></span><br><span class="line"><span class="comment">//  &#123; id: '2', name: 'rose', value: 'woman', age: 20 &#125;,</span></span><br><span class="line"><span class="comment">//  &#123; id: '5', name: 'tom', age: 22, value: 'woman' &#125; ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>类似对象，但键值可以是各种类型的值</p>
+<h3 id="Map-遍历数组"><a href="#Map-遍历数组" class="headerlink" title="Map  遍历数组"></a>Map  遍历数组</h3><p>map 的 key 唯一</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> oldArr = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">'1'</span>, <span class="attr">name</span>: <span class="string">'jack'</span>, <span class="attr">age</span>: <span class="number">20</span>, <span class="attr">value</span>: <span class="string">'man'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">'2'</span>, <span class="attr">name</span>: <span class="string">'rose'</span>, <span class="attr">age</span>: <span class="number">20</span>, <span class="attr">value</span>: <span class="string">'woman'</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">'2'</span>, <span class="attr">name</span>: <span class="string">'rose'</span>, <span class="attr">value</span>: <span class="string">'woman'</span>, <span class="attr">age</span>: <span class="number">20</span>, &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">'5'</span>, <span class="attr">name</span>: <span class="string">'tom'</span>, <span class="attr">age</span>: <span class="number">22</span>, <span class="attr">value</span>: <span class="string">'woman'</span> &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> res = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">  <span class="comment">// 根据 name 来过滤 可以是id/age/value</span></span><br><span class="line">  <span class="keyword">return</span> arr.filter(<span class="function">(<span class="params">item</span>) =&gt;</span> !res.has(item.name) &amp;&amp; res.set(item.name, <span class="number">1</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Map &#123; 'jack' =&gt; 1, 'rose' =&gt; 1, 'tom' =&gt; 1 &#125;</span></span><br><span class="line"></span><br><span class="line">unique(oldArr);</span><br><span class="line"><span class="comment">// [ &#123; id: '1', name: 'jack', age: 20, value: 'man' &#125;,</span></span><br><span class="line"><span class="comment">//  &#123; id: '2', name: 'rose', age: 20, value: 'woman' &#125;,</span></span><br><span class="line"><span class="comment">//  &#123; id: '5', name: 'tom', age: 22, value: 'woman' &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="reduce"><a href="#reduce" class="headerlink" title="reduce()"></a><del>reduce()</del></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hash = &#123;&#125;;</span><br><span class="line"><span class="keyword">this</span>.selectProject = <span class="keyword">this</span>.selectProject.reduce(<span class="function">(<span class="params">preVal, curVal</span>) =&gt;</span> &#123;</span><br><span class="line">    hash[curVal.id] ? <span class="string">''</span> : hash[curVal.id] = <span class="literal">true</span> &amp;&amp; preVal.push(curVal);</span><br><span class="line">    <span class="keyword">return</span> preVal</span><br><span class="line">&#125;, [])</span><br></pre></td></tr></table></figure>
+
+<p>c</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Articles</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Set"><span class="toc-number">1.</span> <span class="toc-text">Set</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Set-遍历数组"><span class="toc-number">1.1.</span> <span class="toc-text">Set 遍历数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Map"><span class="toc-number">2.</span> <span class="toc-text">Map</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Map-遍历数组"><span class="toc-number">2.1.</span> <span class="toc-text">Map  遍历数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reduce"><span class="toc-number">3.</span> <span class="toc-text">reduce()</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&text=使用Set&amp;Map数组去重"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&title=使用Set&amp;Map数组去重"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&is_video=false&description=使用Set&amp;Map数组去重"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=使用Set&amp;Map数组去重&body=Check out this article: https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&title=使用Set&amp;Map数组去重"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&title=使用Set&amp;Map数组去重"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&title=使用Set&amp;Map数组去重"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&title=使用Set&amp;Map数组去重"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.jinyizhe.com/2019/06/20/使用Set-Map数组去重/&name=使用Set&amp;Map数组去重&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menú</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Compartir</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Cap amunt</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 jackZhe
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Articles</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
