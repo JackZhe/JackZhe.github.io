@@ -9,14 +9,13 @@
     <meta name="description" content="人生的过渡,当时百般艰难;蓦然回首,原来已经飞渡千山">
 <meta name="keywords" content="Html,CSS,JavaScript">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Search">
-<meta property="og:url" content="https://www.jinyizhe.com/search/index.html">
+<meta property="og:title" content="行走的人字拖">
+<meta property="og:url" content="https://www.jinyizhe.com/archives/2019/08/index.html">
 <meta property="og:site_name" content="行走的人字拖">
 <meta property="og:description" content="人生的过渡,当时百般艰难;蓦然回首,原来已经飞渡千山">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-19T14:42:27.298Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Search">
+<meta name="twitter:title" content="行走的人字拖">
 <meta name="twitter:description" content="人生的过渡,当时百般艰难;蓦然回首,原来已经飞渡千山">
     
     
@@ -37,7 +36,7 @@
         
     
     <!-- title -->
-    <title>Search</title>
+    <title>Articles: 2019/8</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -83,22 +82,42 @@
 </header>
 
         
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div id="archive">
+  <ul class="post-list">
+    
+    
+    
+    
+      
+      
+      
+      
+        <h2>2019</h2>
+      
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2019-08-02T09:09:04.000Z" itemprop="datePublished">2019-08-02</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2019/08/02/深拷贝-浅拷贝/">深拷贝&amp;浅拷贝</a>
+    
+
+
+</span>
+      </li>
+    
+  </ul>
   
 
-  <div class="content" itemprop="articleBody">
-      
-        <section id="search">
-  <form>
-    <input type="text" class="search-input" id="search-input" placeholder="Buscar...">
-  </form>
-  <div id="search-result"></div>
-  <p class="search-no-result">No s&#39;han trobat resultats.</p>
-</section>
-
-      
-  </div>
-</article>
+</div>
 
         
         <footer id="footer">
@@ -132,41 +151,6 @@
 <script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
 <script src="/js/main.js"></script>
 <!-- search -->
-
-  <script src="/js/search.js"></script>
-  <script type="text/javascript">
-  $(function() {
-
-    var $inputArea = $("input#search-input");
-    var $resultArea = document.querySelector("div#search-result");
-
-    $inputArea.focus(function() {
-      var search_path = "search.xml";
-      if (search_path.length == 0) {
-        search_path = "search.xml";
-      }
-      var path = "/" + search_path;
-      searchFunc(path, 'search-input', 'search-result');
-    });
-
-    $inputArea.keydown(function(e) {
-      if (e.which == 13) {
-        e.preventDefault();
-      }
-    });
-
-    var observer = new MutationObserver(function(mutationsList, observer) {
-      if (mutationsList[0].addedNodes) {
-        $(".search-no-result").show(200);
-      } else {
-        $(".search-no-result").hide();
-      }
-    });
-
-    observer.observe($resultArea, { childList: true });
-
-  });
-  </script>
 
 <!-- Google Analytics -->
 
