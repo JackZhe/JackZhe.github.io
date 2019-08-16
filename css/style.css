@@ -1459,8 +1459,9 @@ code {
   margin: 1rem 0;
   padding: 10px 15px;
   border-radius: 4px;
-  background: #f8f8f8;
+  background: #fafafa;
   font-family: "Menlo", "Meslo LG", monospace;
+  color: #8c8c8c;
   -webkit-border-radius: 4px;
 }
 .highlight figcaption {
