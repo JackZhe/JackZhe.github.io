@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Flex Note</title>
+      <link href="/2019/09/03/Flex-Note/"/>
+      <url>/2019/09/03/Flex-Note/</url>
+      
+        <content type="html"><![CDATA[<p>&#x5173;&#x4E8E; Flex &#x5E03;&#x5C40;&#x7684;&#x6587;&#x7AE0;&#x6709;&#x5F88;&#x591A; &#x597D;&#x6587;&#x7AE0;</p><ol><li><p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="noopener">Flex &#x5E03;&#x5C40;&#x6559;&#x7A0B;</a></p></li><li><p><a href="https://cloud.tencent.com/developer/article/1354252" target="_blank" rel="noopener">30&#x5206;&#x949F;&#x5F7B;&#x5E95;&#x5F04;&#x61C2;flex&#x5E03;&#x5C40;</a></p></li></ol><h3 id="flex">Flex</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span>{</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">}</span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span>{</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.box</span>{</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</span><br><span class="line">}</span><br></pre></td></tr></table></figure><p>&#x8FD9;&#x4E24;&#x79CD;&#x6C34;&#x5E73;&#x5782;&#x76F4;&#x5C45;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x662F;&#x5E73;&#x65F6;&#x7528;&#x7684;&#x6BD4;&#x8F83;&#x591A;&#x7684;&#x3002;</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CSS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Flex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git commit 规范</title>
       <link href="/2019/08/20/git-commit-%E8%A7%84%E8%8C%83/"/>
       <url>/2019/08/20/git-commit-%E8%A7%84%E8%8C%83/</url>
